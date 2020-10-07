@@ -19,7 +19,7 @@ import { KrakenModule } from './kraken/kraken.module';
     PaypalModule,
     AuthModule,
     KrakenModule,
-    MongooseModule.forRoot('mongodb+srv://hasanrasheed:Pass123456@cluster0-0kmmw.mongodb.net/test?retryWrites=true&w=majority')],
+    MongooseModule.forRoot('')],
   controllers: [AppController],
   providers: [AppService],
 })
