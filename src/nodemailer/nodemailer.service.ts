@@ -1,7 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 const nodemailer = require('nodemailer');
-
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 
@@ -12,11 +13,11 @@ let transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         type: 'OAuth2',
-        user: '',
-        clientId: '',
-        clientSecret: '',
-        refreshToken: '',
-        accessToken: '',
+        user: process.env.NODE_MAILER_USER,
+        clientId: process.env.NODE_CLIENT_ID,
+        clientSecret: process.env.NODE_CLIENT_SECRET,
+        refreshToken: process.env.NODE_MAILER_REFRESH_TOKEN,
+        accessToken: process.env.NODE_MAILER_ACCESS_TOKEN,
         expires: 3599
     }
 });

@@ -1,5 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-const stripe = require('stripe')('<test key>'); //will be replaced by my key afterward
+const dotenv = require('dotenv');
+dotenv.config();
+const stripe = require('stripe')(process.env.STRIPE_KEY); //will be replaced by my key afterward
 const axios = require('axios');
 const paypal = require('paypal-rest-sdk');
 const {promisify} = require('util');

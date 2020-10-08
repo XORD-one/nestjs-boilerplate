@@ -27,6 +27,7 @@
     "@nestjs/platform-express": "^6.7.2",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "kraken-api": "^1.0.0",
     "mongoose": "^5.8.7",
