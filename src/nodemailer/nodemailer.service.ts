@@ -12,11 +12,11 @@ let transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         type: 'OAuth2',
-        user: 'admin@abods.tech',
-        clientId: '929435037368-dcq09pfgun4uheos6jliv1oak5brf1r3.apps.googleusercontent.com',
-        clientSecret: 'RqT639s_upCnzahI62V0Bflq',
-        refreshToken: '1//04cgkdjKzCkp5CgYIARAAGAQSNwF-L9Ir83eayH7Z0OM_fw8dtQl5Wdfqt07hS7qUs5izJzXDJo6eUBaDqi2GclIoCK7f-8BimWI',
-        accessToken: 'ya29.Il-6B4HbgD5Fjc5w73LXg712UBUsOZE0y8MQk6P9v-nKrV4t2O1qYCONyUGQwfEdrBU9UR7k_MjGR7PapHyN9TctNzM1Qf9DykCDZ0yx68lMFlC0g-Kkyc5Lwdh9hYdfhQ',
+        user: '',
+        clientId: '',
+        clientSecret: '',
+        refreshToken: '',
+        accessToken: '',
         expires: 3599
     }
 });
@@ -33,7 +33,7 @@ export class NodemailerService {
             
             let info = await transporter.sendMail({
                 from: 'no-reply@crypto.farm', // sender address
-                to: "kashanzahoorsiddiqui@gmail.com,"+`${invoiceData.payerEmail}`,//receiver email
+                to: ","+`${invoiceData.payerEmail}`,//receiver email
                 subject: 'Receipt of Crypto Delivery Payment '+`${invoiceData.payerID}`, // Subject line
                 html: `
                 <h2>************Paid Invoice***************</h2> 
@@ -101,7 +101,7 @@ export class NodemailerService {
             
             let info = await transporter.sendMail({
                 from: 'no-reply@crypto.farm', // sender address
-                to: "payments@abods.tech,kashanzahoorsiddiqui@gmail.com",//receiver email
+                to: "",//receiver email
                 subject: 'Receipt of Crypto Delivery Payment ' +`${invoiceData.payerID}`, // Subject line
                html: `
                 <h2>************Paid Invoice***************</h2> 
