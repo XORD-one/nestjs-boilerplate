@@ -16,8 +16,8 @@ export class StripeService {
         try {
             let url = "https://currency13.p.rapidapi.com/list"
             let header = {
-                "x-rapidapi-host": "currency13.p.rapidapi.com",
-                "x-rapidapi-key": "<test key>"
+                "x-rapidapi-host": process.env.RAPID_API_HOST,
+                "x-rapidapi-key": process.env.RAPID_API_KEY
             }
             const currencies = []
             let result = await axios.get(url, {params: {}, headers: header})
