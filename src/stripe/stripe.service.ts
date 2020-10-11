@@ -1,5 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-const stripe = require('stripe')('<test key>'); //will be replaced by my key afterward
+const dotenv = require('dotenv');
+dotenv.config();
+const stripe = require('stripe')(process.env.STRIPE_KEY); //will be replaced by my key afterward
 const axios = require('axios');
 const paypal = require('paypal-rest-sdk');
 const {promisify} = require('util');
@@ -14,8 +16,8 @@ export class StripeService {
         try {
             let url = "https://currency13.p.rapidapi.com/list"
             let header = {
-                "x-rapidapi-host": "currency13.p.rapidapi.com",
-                "x-rapidapi-key": "<test key>"
+                "x-rapidapi-host": process.env.RAPID_API_HOST,
+                "x-rapidapi-key": process.env.RAPID_API_KEY
             }
             const currencies = []
             let result = await axios.get(url, {params: {}, headers: header})

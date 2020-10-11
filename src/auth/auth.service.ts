@@ -4,6 +4,8 @@ import { Model } from 'mongoose'
 import { Auth } from './auth.model'
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv');
+dotenv.config();
 @Injectable()
 export class AuthService {
     products: Auth[] = [];
@@ -23,7 +25,7 @@ export class AuthService {
                 }
                 if (!bcrypt.compareSync(pass, userExist.hash)) return "Wrong Password";
                 // const newUser = new this.authModel({ email, pass });
-                const token = jwt.sign({ email: userExist.email }, 'secret', { expiresIn: '1h' });
+                const token = jwt.sign({ email: userExist.email }, process.env.JWT_ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
                 const user = {
                     userExist,
                     token
