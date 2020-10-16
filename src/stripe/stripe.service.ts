@@ -93,10 +93,5 @@ createPayment = async (obj) => {
         throw [404, "Payment Failed",error.message];
     }
 }
-// const obj = {
-//        amount: "100", //this means 1 dollar
-//        currency: "USD",
-//        source: "tok_visa"
-//      }
 
 }
