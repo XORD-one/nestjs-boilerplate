@@ -9,12 +9,14 @@ import { NodemailerModule } from "./nodemailer/nodemailer.module";
 import { AuthModule } from "./auth/auth.module";
 import { PaypalModule } from "./paypal/paypal.module";
 import { KrakenModule } from "./kraken/kraken.module";
+import { TransactionsModule } from "./transactions/transactions.module";
 
 @Module({
   imports: [
     MulterModule.register({
       dest: "./uploads",
     }),
+    TransactionsModule,
     ProductModule,
     StripeModule,
     NodemailerModule,
